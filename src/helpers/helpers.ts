@@ -1,5 +1,7 @@
-export function transformData(data) {
-  const result = data.map(photo => {
+import { ITransformedData } from '../types/commonTypes';
+
+export function transformData(data: object[]): ITransformedData[] {
+  const result = data.map((photo: any) => {
     return {
       id: photo.id,
       alt: photo['alt_description'],

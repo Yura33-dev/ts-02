@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import styles from './ImageCard.module.css';
+import PropTypes from "prop-types";
+import styles from "./ImageCard.module.css";
 
 function ImageCard({ photo, modal, onOpen }) {
   function clickHandler() {

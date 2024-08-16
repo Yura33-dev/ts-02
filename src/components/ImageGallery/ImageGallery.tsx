@@ -1,9 +1,14 @@
-import PropTypes, { object } from 'prop-types';
-
-import styles from './ImageGallery.module.css';
+import { ITransformedData } from '../../types/commonTypes';
 import ImageCard from '../ImageCard/ImageCard';
 
-function ImageGallery({ photos, onOpen }) {
+import styles from './ImageGallery.module.css';
+
+type ImageGalleryProps = {
+  photos: ITransformedData[];
+  onOpen: (arg: object) => void;
+};
+
+function ImageGallery({ photos, onOpen }: ImageGalleryProps) {
   return (
     <ul className={styles.ul}>
       {photos.map(photo => (
@@ -14,10 +19,4 @@ function ImageGallery({ photos, onOpen }) {
     </ul>
   );
 }
-
-ImageGallery.propTypes = {
-  photos: PropTypes.arrayOf(object),
-  onOpen: PropTypes.func,
-};
-
 export default ImageGallery;

@@ -1,11 +1,17 @@
+import { FormEvent } from 'react';
 import styles from './SearchBar.module.css';
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 
-function SearchBar({ onSubmit }) {
-  function submitHandler(e) {
-    e.preventDefault();
-    const { search } = e.target.elements;
+type onSubmitFuncType = { onSubmit: (arg: string) => void };
+
+function SearchBar({ onSubmit }: onSubmitFuncType) {
+  function submitHandler(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const search = event.currentTarget.elements.namedItem(
+      'search'
+    ) as HTMLInputElement;
 
     const searchString = search.value.trim();
 

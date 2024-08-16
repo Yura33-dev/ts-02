@@ -1,11 +1,16 @@
 import ReactModal from 'react-modal';
-import PropTypes from 'prop-types';
 import { HiXMark } from 'react-icons/hi2';
+import { IModalState } from '../../types/commonTypes';
 import ImageCard from '../ImageCard/ImageCard';
 
 import './ImageModal.css';
 
-function ImageModal({ showModal, closeModal }) {
+type ImageModalProps = {
+  showModal: IModalState;
+  closeModal: () => void;
+};
+
+function ImageModal({ showModal, closeModal }: ImageModalProps) {
   return (
     <ReactModal
       isOpen={showModal.isOpen}
@@ -27,10 +32,5 @@ function ImageModal({ showModal, closeModal }) {
     </ReactModal>
   );
 }
-
-ImageModal.propTypes = {
-  showModal: PropTypes.object,
-  closeModal: PropTypes.func,
-};
 
 export default ImageModal;
