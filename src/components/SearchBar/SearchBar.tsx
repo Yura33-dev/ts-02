@@ -1,11 +1,10 @@
 import { FormEvent } from 'react';
 import styles from './SearchBar.module.css';
-import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 
-type onSubmitFuncType = { onSubmit: (arg: string) => void };
+type SearchBarProps = { onSubmit: (arg: string) => void };
 
-function SearchBar({ onSubmit }: onSubmitFuncType) {
+function SearchBar({ onSubmit }: SearchBarProps) {
   function submitHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -45,7 +44,4 @@ function SearchBar({ onSubmit }: onSubmitFuncType) {
   );
 }
 
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func,
-};
 export default SearchBar;

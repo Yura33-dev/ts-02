@@ -1,7 +1,14 @@
-import PropTypes from "prop-types";
-import styles from "./ImageCard.module.css";
+import { ITransformedData } from '../../types/commonTypes';
 
-function ImageCard({ photo, modal, onOpen }) {
+import styles from './ImageCard.module.css';
+
+type ImageCardProps = {
+  photo: ITransformedData;
+  modal: boolean;
+  onOpen: (arg: object) => void;
+};
+
+function ImageCard({ photo, modal, onOpen }: ImageCardProps) {
   function clickHandler() {
     if (!modal) {
       onOpen(photo);
@@ -19,11 +26,5 @@ function ImageCard({ photo, modal, onOpen }) {
     </div>
   );
 }
-
-ImageCard.propTypes = {
-  photo: PropTypes.object,
-  modal: PropTypes.bool,
-  onOpen: PropTypes.func,
-};
 
 export default ImageCard;
